@@ -1,11 +1,10 @@
 import React,{useState,useEffect} from 'react';
 import {useRouter} from 'next/router';
 function NavSearchBar(){
-   const router=useRouter();
    const [query,setQuery]=useState("");
    const search=()=>{
-    if(query.length >= 3){
-      router.push(`/search?q=${query}`)
+    if(query.length >= 1){
+     location.replace(`/search?q=${query}`)
     }
    }
  
@@ -20,7 +19,7 @@ function NavSearchBar(){
           setQuery(e.target.value);
          
 
-        }}/><img src="arrow-left.svg" alt="search icon" onClick={()=>{search()}}/>
+        }}/><img src="arrow-left.svg" alt="search icon" className="pointer" onClick={()=>{search()}}/>
       
         </form>
            

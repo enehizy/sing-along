@@ -1,5 +1,4 @@
 import React from 'react';
-
 function SongCard({img,title,artistName,fullTitle,path,id}){
     return(
         <div className="songcard">
@@ -8,7 +7,9 @@ function SongCard({img,title,artistName,fullTitle,path,id}){
                     <h3>{title}</h3>
                     <h6>{artistName}</h6>
                   {/* <button className="gotolyricbutton">go to lyr</button> */}
-                 <button className="gotobutton">View Lyrics</button>
+                 <button className="gotobutton pointer" onClick={()=>{
+                   location.replace(`${path}?id=${id}`)
+                 }}>View Lyrics</button>
                   
                </div>
               </div>

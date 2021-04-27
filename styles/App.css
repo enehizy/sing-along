@@ -222,7 +222,7 @@ padding:5px;
   
   color:#292540;
   font-family: monospace;
-
+ line-height: 3rem;
 }
 .reload{
   text-align:center;
@@ -232,6 +232,9 @@ padding:50px;
   color:orange;
   border-bottom:1px solid orange;
   cursor: pointer;
+}
+.pointer{
+  cursor:pointer;
 }
 
 @media only screen and (min-width: 768px) {
