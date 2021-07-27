@@ -42,7 +42,7 @@ export const getServerSideProps= async (context)=>{
         }
     }
     catch(e){
-        // console.log(e);
+        console.log({error:e});
         return{
             props:{
                error:true

@@ -14,12 +14,20 @@ export async function querySong(q){
 export async function getLyrics(path){
   
         const result=await axios(`https://genius.com/${path}`);
-        let $ = cheerio.load(result.data);
-        $=cheerio.load($('.lyrics  > p').html(), {
+        let $ = cheerio.load(`${result.data}`);
+        const lyricInDom=$('.lyrics  > p').html();
+        $=cheerio.load(`${lyricInDom}`, {
             xml: {
               normalizeWhitespace: true,
             }})
-          const lyrics=$.root().text();
+        
+         
+        //   console.log({lyrics:$.text()})
+          let lyrics=await Promise.all([$.root().text()]);
+          lyrics=lyrics[0];
+          
+    
+          if(lyrics === 'null') throw `lyric not found`;
           return `${lyrics}`;
       
 }
@@ -27,15 +35,13 @@ export async function getLyrics(path){
       
 
 export async function findSong(id){
-   try{
+
     const response= await axios(`https://api.genius.com/songs/${id}`,{
         headers:{
             'Authorization':`Bearer ${process.env.ACCESS_TOKEN}`
         }
     });
     return response.data.response.song;
-   }
-   catch(e){
-       throw `${e}`;
-   }
+   
+  
 }

@@ -12,6 +12,7 @@ function SearchBar(props){
     return(
         <div>
         <h2>Find the Lyrics to your Favourite Songs</h2>
+       
         <p className="poweredbygenius">Powered by Genius.com</p>
         <div className="search-bar">
         <form onSubmit={(e)=>{
