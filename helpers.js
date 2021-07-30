@@ -23,8 +23,8 @@ export async function getLyrics(path){
         
          
         //   console.log({lyrics:$.text()})
-          let lyrics=await Promise.all([$.root().text()]);
-          lyrics=lyrics[0];
+          const lyrics=$.root().text();
+         
           
     
           if(lyrics === 'null') throw `lyric not found`;
